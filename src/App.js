@@ -7,6 +7,11 @@ const PasswordErrorMessage = () => {
    <p className="FieldError">Password should have at least 8 characters</p> 
  ); 
 }; 
+// const RetypePasswordErrorMessage = () => { 
+//   return ( 
+//     <p className="FieldError">Password did not match</p> 
+//   ); 
+//  };
  
 function App() { 
  const [firstName, setFirstName] = useState(""); 
@@ -16,14 +21,18 @@ function App() {
    value: "", 
    isTouched: false, 
  }); 
+ const [ retypePassword, setRetypePassword ] = useState("");
  const [role, setRole] = useState("role"); 
 
  const getIsFormValid = () => { 
+   
    return ( 
+    password.value === retypePassword &&
      firstName && 
      validateEmail(email) && 
      password.value.length >= 8 && 
-     role !== "role" 
+     role !== "role"
+     
    ); 
  }; 
  
@@ -106,6 +115,24 @@ function App() {
             {password.isTouched && password.value.length < 8 ? ( 
               <PasswordErrorMessage /> 
             ) : null} 
+          </div>
+
+          <div className="Field">
+            <label>Re-type Password</label>
+            <input 
+              id="RetypePassword"
+              value={retypePassword}
+              type="password"
+              onChange={ (e) => {
+                setRetypePassword(e.target.value)
+              } }
+              placeholder="Re-type Password"
+              // bug still fixing
+              // { password.value == retypePassword ?  
+              //   <RetypePasswordErrorMessage /> 
+              //  : null }
+            />
+
           </div>
           
           <div className="Field"> 
