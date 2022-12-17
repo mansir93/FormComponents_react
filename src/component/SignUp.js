@@ -7,7 +7,7 @@ const PasswordErrorMessage = () => {
       <p className="FieldError">Password should have at least 8 characters</p> 
     ); 
    }; 
-   const RetypePasswordErrorMessage = () => { 
+const RetypePasswordErrorMessage = () => { 
      return ( 
        <p className="FieldError">Password did not match</p> 
      ); 
@@ -16,10 +16,11 @@ const PasswordErrorMessage = () => {
 
 
 const SignUp = () => {
-    const [firstName, setFirstName] = useState(""); 
- const [lastName, setLastName] = useState(""); 
- const [email, setEmail] = useState(""); 
- const [password, setPassword] = useState({ 
+
+  const [firstName, setFirstName] = useState(""); 
+  const [lastName, setLastName] = useState(""); 
+  const [email, setEmail] = useState(""); 
+  const [password, setPassword] = useState({ 
    value: "", 
    isTouched: false, 
  }); 
