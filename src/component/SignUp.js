@@ -7,11 +7,11 @@ const PasswordErrorMessage = () => {
       <p className="FieldError">Password should have at least 8 characters</p> 
     ); 
    }; 
-   // const RetypePasswordErrorMessage = () => { 
-   //   return ( 
-   //     <p className="FieldError">Password did not match</p> 
-   //   ); 
-   //  };
+   const RetypePasswordErrorMessage = () => { 
+     return ( 
+       <p className="FieldError">Password did not match</p> 
+     ); 
+    };
     
 
 
@@ -25,9 +25,15 @@ const SignUp = () => {
  }); 
  const [ retypePassword, setRetypePassword ] = useState("");
  const [role, setRole] = useState("role"); 
+// still fixing bug
+//  const Matchpasswords = () => {
+//   if(password.value !== retypePassword)   
+//   return (alert("Password did not match"));
+//  }
 
- const getIsFormValid = () => { 
-   
+ const getIsFormValid = () => {  
+ 
+
    return ( 
     password.value === retypePassword &&
      firstName && 
@@ -50,7 +56,7 @@ const SignUp = () => {
  }; 
  
  const handleSubmit = (e) => { 
-   e.preventDefault(); 
+   e.preventDefault();
    alert("Account created!"); 
    clearForm(); 
  }; 
@@ -129,11 +135,12 @@ const SignUp = () => {
                 setRetypePassword(e.target.value)
               } }
               placeholder="Re-type Password"
-              // bug still fixing
-              // { password.value == retypePassword ?  
-              //   <RetypePasswordErrorMessage /> 
-              //  : null }
             />
+              {/* bug still fixing */}
+              { password.value === retypePassword ?  
+                <RetypePasswordErrorMessage /> 
+               : null }
+            
 
           </div>
           
